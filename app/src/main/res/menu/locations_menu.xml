@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:support="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/menu_cordoba"
+        android:title="@string/city_cordoba"
+        support:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_bogota"
+        android:title="@string/city_bogota"
+        support:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_huston"
+        android:title="@string/city_huston_tx"
+        support:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_ny"
+        android:title="@string/city_new_york"
+        support:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_berlin"
+        android:title="@string/city_berlin"
+        support:showAsAction="never"/>
+
+</menu>

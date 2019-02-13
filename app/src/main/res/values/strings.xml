@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CodeChallengeFlw</string>
+    <string name="city_cordoba">Cordoba</string>
+    <string name="city_bogota">Bogota</string>
+    <string name="city_huston_tx">Huston, TX</string>
+    <string name="city_new_york">New York</string>
+    <string name="city_berlin">Berlin</string>
+</resources>
