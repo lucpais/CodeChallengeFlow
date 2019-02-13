@@ -6,21 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -33,27 +36,51 @@
                 android:layout_height="match_parent"
                 android:visibility="gone" />
 
-            <RelativeLayout
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/current_info_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="visible">
 
+                <TextView
+                    android:id="@+id/current_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="@dimen/city_big"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="February 12" />
+
                 <ImageView
                     android:id="@+id/current_weather_image"
                     android:layout_width="@dimen/width_image_large"
                     android:layout_height="@dimen/height_image_large"
+                    android:layout_below="@+id/current_city"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/default_margin"
-                    android:src="@android:drawable/ic_menu_camera" />
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/current_city" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@+id/current_city"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="@dimen/default_margin"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:layout_toEndOf="@+id/current_weather_image"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    app:layout_constraintStart_toEndOf="@+id/current_weather_image"
+                    app:layout_constraintTop_toBottomOf="@+id/current_city">
 
                     <TextView
                         android:id="@+id/current_date"
@@ -88,7 +115,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/default_margin"
-                        android:textSize="46sp"
+                        android:textSize="@dimen/temp_big"
                         tools:text="24°" />
 
                     <TextView
@@ -99,7 +126,7 @@
                         tools:text="Partly Cloudy" />
 
                 </LinearLayout>
-            </RelativeLayout>
+            </android.support.constraint.ConstraintLayout>
 
         </RelativeLayout>
 

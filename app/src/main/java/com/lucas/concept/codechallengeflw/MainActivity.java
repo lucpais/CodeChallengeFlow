@@ -1,5 +1,6 @@
 package com.lucas.concept.codechallengeflw;
 
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
@@ -25,6 +26,7 @@ import com.squareup.picasso.Picasso;
 public class MainActivity extends AppCompatActivity implements IInformationAvailableListener {
 
     private static final String TAG = MainActivity.class.getCanonicalName();
+    private TextView mCurrentCityTv;
     private TextView mCurrentDateTv;
     private TextView mCurrentTempTv;
     private TextView mCurrentMaxTv;
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements IInformationAvail
     private ImageView mCurrentWeatherImage;
     private ProgressBar mCurrentInfoProgressBar;
     private ProgressBar mForecastInfoProgressBar;
-    private RelativeLayout mCurrentInfoRL;
+    private ConstraintLayout mCurrentInfoRL;
     private RecyclerView mRecyclerView;
     private WeatherAdapter mWeatherAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
@@ -85,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements IInformationAvail
     }
 
     private void initViews() {
+        mCurrentCityTv = findViewById(R.id.current_city);
         mCurrentInfoProgressBar = findViewById(R.id.current_info_progressbar);
         mCurrentInfoRL = findViewById(R.id.current_info_layout);
         setCurrentInfoInProgress(true);
@@ -137,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements IInformationAvail
         Log.d(TAG,"Current weather now available");
         Weather thisWeather = WeatherController.getInstance(this).getCurrentData();
         if (thisWeather != null) {
+            mCurrentCityTv.setText(thisWeather.getCity());
             mCurrentDateTv.setText(thisWeather.getDate());
             mCurrentMaxTv.setText(thisWeather.getTempMax());
             mCurrentMinTv.setText(thisWeather.getTempMin());
