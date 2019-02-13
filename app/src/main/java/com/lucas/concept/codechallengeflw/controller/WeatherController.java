@@ -95,6 +95,7 @@ public class WeatherController {
             @Override
             public void onResponse(JSONObject response) {
                 try {
+                    mForecastData.clear();
                     JSONArray forecastArray = response.getJSONArray("list");
                     for (int index = 0; index < 5; index++) {
                         Weather day = new Weather();
