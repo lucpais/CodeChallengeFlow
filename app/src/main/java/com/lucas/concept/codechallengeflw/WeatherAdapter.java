@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.lucas.concept.codechallengeflw.controller.IItemClickListener;
 import com.lucas.concept.codechallengeflw.controller.WeatherController;
 import com.lucas.concept.codechallengeflw.model.Weather;
 import com.squareup.picasso.Picasso;
@@ -19,14 +18,13 @@ import java.util.List;
 class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHolder> {
     private final Context mContext;
     private List<Weather> mData;
-    private IItemClickListener mClickListener;
 
     public WeatherAdapter(Context context) {
         mContext = context;
         mData = WeatherController.getInstance(mContext).getForecastData();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView mMaxTemp;
         public TextView mMinTemp;
         public TextView mDescription;
@@ -35,7 +33,6 @@ class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
             mMaxTemp = itemView.findViewById(R.id.forecast_max_temp);
             mMinTemp = itemView.findViewById(R.id.forecast_min_temp);
             mDescription = itemView.findViewById(R.id.forecast_short_desc);
@@ -43,10 +40,6 @@ class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHolder> {
             mWeatherThumbnail = itemView.findViewById(R.id.forecast_image);
         }
 
-        @Override
-        public void onClick(View v) {
-            mClickListener.onClickDevice(v, getAdapterPosition());
-        }
     }
 
     @NonNull
@@ -77,7 +70,4 @@ class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHolder> {
         return mData.size();
     }
 
-    public void setClickListener(IItemClickListener itemClickListener) {
-        mClickListener = itemClickListener;
-    }
 }

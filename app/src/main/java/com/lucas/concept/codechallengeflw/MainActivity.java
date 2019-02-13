@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements IInformationAvail
     }
 
     private void setForecastInfoInProgress(boolean progressVisible) {
-        Log.d(TAG, "progress set visible: " + progressVisible);
+        Log.d(TAG, "progress set visible: " + progressVisible + " " + mForecastInfoProgressBar);
         if (progressVisible) {
             mForecastInfoProgressBar.setVisibility(View.VISIBLE);
             mRecyclerView.setVisibility(View.INVISIBLE);
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements IInformationAvail
     }
 
     private void setCurrentInfoInProgress(boolean progressVisible) {
-        Log.d(TAG, "progress set visible: " + progressVisible);
+        Log.d(TAG, "progress set visible: " + progressVisible + " " + mCurrentInfoProgressBar);
         if (progressVisible) {
             mCurrentInfoProgressBar.setVisibility(View.VISIBLE);
             mCurrentInfoRL.setVisibility(View.INVISIBLE);
